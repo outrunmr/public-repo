@@ -10,4 +10,4 @@ jobs:
             -H "Accept: application/vnd.github.everest-preview+json" \
             -H "Authorization: token ${{ secrets.TOKEN }}" \
             https://api.github.com/repos/outrunmr/private-repo/dispatches \
-            -d '{"event_type":"run-from-public","client_payload":{"pr_number":${{ github.event.number }}}}'
+            -d '{"event_type":"run-from-public","client_payload":{"pr_number":${{ github.event.number }}, "pr_name":"${{github.event.pull_request.title}}", "pr_sha": "${{github.event.pull_request.head.sha}}"}}'
